@@ -4,8 +4,7 @@ import {
   Menu, 
   X, 
   LogOut, 
-  User, 
-  PenSquare, 
+  User,
   Layout, 
   FileText,
   ChevronDown
