@@ -34,11 +34,11 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
   <img 
-    src="/assets/BlogDrop_Logo.png" // Replace with actual path or imported image
+    src="/assets/BlogDrop_Logo.png" 
     alt="BlogDrop Logo"
-    className="h-12 w-auto -ml-8"
+    className="h-24 w-auto md:h-32 md:w-auto mt-1" 
   />
-  <span className="font-bold text-2xl mt-2 -ml-4 font-jakarta text-gray-800">BlogDrop</span>
+  {/* <span className="font-bold text-2xl mt-2 -ml-4 font-jakarta text-gray-800">BlogDrop</span> */}
 </Link>
 
             

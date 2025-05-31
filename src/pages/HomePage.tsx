@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, PenSquare, Settings, Globe, Edit, Image, FileText } from 'lucide-react';
 import Button from '../components/ui/Button';
+import HomeAnimation from '../components/ui/HomeAnimation';
 
 const HomePage: React.FC = () => {
   return (
@@ -30,14 +31,10 @@ const HomePage: React.FC = () => {
                 </Link>
               </div>
             </div>
-            <div className="flex-1 mt-12 lg:mt-0">
+            <div className="flex-1 mt-12  md:ml-10 lg:mt-0">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary-200 to-secondary-200 rounded-3xl transform rotate-3 scale-105 opacity-20"></div>
-                <img 
-                  src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                  alt="Blog editor preview" 
-                  className="relative rounded-xl shadow-2xl"
-                />
+                <HomeAnimation />
               </div>
             </div>
           </div>
