@@ -9,8 +9,12 @@ import {
   Type,
   Quote,
   List,
+  ListOrdered,
   Trash2,
-  Copy
+  Copy,
+  Heading1,
+  Heading2,
+  Heading3
 } from 'lucide-react';
 
 interface FloatingToolbarProps {
@@ -26,7 +30,7 @@ const FloatingToolbar: React.FC<FloatingToolbarProps> = ({
 }) => {
   if (!editor) return null;
 
-  const items = [
+  const formatItems = [
     {
       icon: <Bold size={16} />,
       title: 'Bold',
@@ -50,17 +54,6 @@ const FloatingToolbar: React.FC<FloatingToolbarProps> = ({
       title: 'Code',
       action: () => editor.chain().focus().toggleCode().run(),
       isActive: editor.isActive('code')
-    },
-    {
-      icon: <Link size={16} />,
-      title: 'Link',
-      action: () => {
-        const url = window.prompt('Enter URL');
-        if (url) {
-          editor.chain().focus().setLink({ href: url }).run();
-        }
-      },
-      isActive: editor.isActive('link')
     }
   ];
 
@@ -70,6 +63,24 @@ const FloatingToolbar: React.FC<FloatingToolbarProps> = ({
       title: 'Text',
       action: () => editor.chain().focus().setParagraph().run(),
       isActive: editor.isActive('paragraph')
+    },
+    {
+      icon: <Heading1 size={16} />,
+      title: 'Heading 1',
+      action: () => editor.chain().focus().toggleHeading({ level: 1 }).run(),
+      isActive: editor.isActive('heading', { level: 1 })
+    },
+    {
+      icon: <Heading2 size={16} />,
+      title: 'Heading 2',
+      action: () => editor.chain().focus().toggleHeading({ level: 2 }).run(),
+      isActive: editor.isActive('heading', { level: 2 })
+    },
+    {
+      icon: <Heading3 size={16} />,
+      title: 'Heading 3',
+      action: () => editor.chain().focus().toggleHeading({ level: 3 }).run(),
+      isActive: editor.isActive('heading', { level: 3 })
     },
     {
       icon: <Quote size={16} />,
@@ -82,12 +93,18 @@ const FloatingToolbar: React.FC<FloatingToolbarProps> = ({
       title: 'Bullet List',
       action: () => editor.chain().focus().toggleBulletList().run(),
       isActive: editor.isActive('bulletList')
+    },
+    {
+      icon: <ListOrdered size={16} />,
+      title: 'Numbered List',
+      action: () => editor.chain().focus().toggleOrderedList().run(),
+      isActive: editor.isActive('orderedList')
     }
   ];
 
   return (
     <div className="flex items-center space-x-1 bg-white rounded-lg shadow-lg border border-gray-200 p-1">
-      {items.map((item, index) => (
+      {formatItems.map((item, index) => (
         <button
           key={index}
           onClick={item.action}
@@ -99,9 +116,9 @@ const FloatingToolbar: React.FC<FloatingToolbarProps> = ({
           {item.icon}
         </button>
       ))}
-      
+
       <div className="w-px h-6 bg-gray-200 mx-1" />
-      
+
       {blockItems.map((item, index) => (
         <button
           key={index}
@@ -114,9 +131,9 @@ const FloatingToolbar: React.FC<FloatingToolbarProps> = ({
           {item.icon}
         </button>
       ))}
-      
+
       <div className="w-px h-6 bg-gray-200 mx-1" />
-      
+
       <button
         onClick={onDuplicate}
         className="p-1.5 rounded hover:bg-gray-100 text-gray-600"
@@ -124,7 +141,7 @@ const FloatingToolbar: React.FC<FloatingToolbarProps> = ({
       >
         <Copy size={16} />
       </button>
-      
+
       <button
         onClick={onDelete}
         className="p-1.5 rounded hover:bg-gray-100 text-gray-600"

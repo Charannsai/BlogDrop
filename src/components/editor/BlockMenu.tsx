@@ -21,14 +21,10 @@ const BlockMenu: React.FC<BlockMenuProps> = ({ onSelect, position }) => {
   const blocks = [
     { type: 'text', icon: <Type size={16} />, label: 'Text' },
     { type: 'heading', icon: <Heading1 size={16} />, label: 'Heading' },
-    { type: 'image', icon: <Image size={16} />, label: 'Image' },
-    { type: 'video', icon: <Play size={16} />, label: 'Video' },
-    { type: 'button', icon: <Link size={16} />, label: 'Button' },
-    { type: 'code', icon: <Code size={16} />, label: 'Code' },
-    { type: 'quote', icon: <Quote size={16} />, label: 'Quote' },
     { type: 'bullet-list', icon: <List size={16} />, label: 'Bullet List' },
     { type: 'ordered-list', icon: <ListOrdered size={16} />, label: 'Numbered List' },
-    { type: 'task-list', icon: <CheckSquare size={16} />, label: 'Task List' }
+    { type: 'code', icon: <Code size={16} />, label: 'Code Block' },
+    { type: 'quote', icon: <Quote size={16} />, label: 'Quote' }
   ];
 
   return (
